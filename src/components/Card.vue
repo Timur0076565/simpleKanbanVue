@@ -7,7 +7,7 @@
         @dragover.stop
     >
         <slot />
-        <button class="delete_card" @click="deleteCard(id[1])">X</button>
+        <!-- <button class="delete_card" @click="deleteCard(id[1])">X</button> -->
 
     </div>
 </template>
@@ -30,9 +30,9 @@ export default {
                 target.style.display = "none";
             }, 0)
         },
-        deleteCard(id) {
-            this.deleteCardAction(id)
-        }
+        // deleteCard(id) {
+        //     this.deleteCardAction(id)
+        // }
     }
 }
 </script>

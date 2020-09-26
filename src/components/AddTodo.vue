@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
     .add_todo__component {
         input {
-            width: 56.5%;
+            width: 75.5%;
             padding: 9px 0 9px 5px;
             margin-top: 5px;
             border: 1px solid blue;

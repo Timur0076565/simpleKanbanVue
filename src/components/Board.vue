@@ -41,13 +41,13 @@ export default {
 <style lang="scss" scoped>
 
 .board__component{
-    width: 20%;
-    height: 80vh;
+    width: 30.9%;
+    height: 87vh;
     margin: 30px 10px 0;
 
     .todos__wrapper {
         overflow: auto;
-        height: 71.5vh;
+        height: 78.5vh;
     }
 
     .title {

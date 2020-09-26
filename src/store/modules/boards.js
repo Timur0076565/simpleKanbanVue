@@ -60,17 +60,11 @@ export default {
 
             e.target.appendChild(card) 
         },
-        deleteCardMutate(state, id) {
-            state.boards.boardTodo.cards.splice(id, 1)
-        },
-        setTodos(state, response) {
-            
-            for (let i = 0; i < response.length; i++) {
-                if (response[i].completed === true) {
-                    state.boards.boardComplete.cards = response
-                }
-                state.boards.boardTodo.cards = response
-            }
+        // deleteCardMutate(state, id) {
+        //     state.boards.boardTodo.cards.splice(id, 1)
+        // },
+        setTodos(state, response) { 
+            state.boards.boardTodo.cards = response
         }
     },
     actions: {
@@ -80,9 +74,9 @@ export default {
         dropAction(context, e) {
             context.commit('dropMutate', e)
         },
-        deleteCardAction(context, id) {
-            context.commit('deleteCardMutate', id)
-        },
+        // deleteCardAction(context, id) {
+        //     context.commit('deleteCardMutate', id)
+        // },
         async getTodos ({ commit }) {
             const response = await axios
                 .get('https://jsonplaceholder.typicode.com/todos')

@@ -64,7 +64,7 @@ export default {
                 
                 input {
                     width: 98.3%;
-                    padding: 5px 0 5px 5px;
+                    padding: 10px 0 10px 5px;
                     margin-top: 5px;
                     border: 1px solid blue;
                     border-radius: 3px;
@@ -76,7 +76,7 @@ export default {
             }
             .login__button {
                 margin-top: 20px;
-                padding: 10px;
+                padding: 15px;
                 background: blue;
                 color: white;
                 outline: none;
