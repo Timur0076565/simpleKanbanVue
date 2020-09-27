@@ -88,9 +88,11 @@ export default {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
     .posts__selects {
         margin-bottom: 10px;
+        margin-right: 1px;
 
         .posts__select_wrapper {
             margin-left: 10px;
@@ -114,8 +116,9 @@ export default {
     .posts__content {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        // align-items: center;
         overflow: auto;
-        height: 96vh;
+        height: 90.7vh;
+        padding: 0 20px 0;
     }
 </style>

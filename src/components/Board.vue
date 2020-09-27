@@ -44,6 +44,7 @@ export default {
     width: 30.9%;
     height: 87vh;
     margin: 30px 10px 0;
+    border-radius: 3px;
 
     .todos__wrapper {
         overflow: auto;

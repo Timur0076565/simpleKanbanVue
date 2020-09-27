@@ -23,10 +23,10 @@ export default {
   opacity: 0;
 }
 .fade-enter-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.2s;
 }
 .fade-leave-active  {
-  transition: opacity 0.5s;
+  transition: opacity 0.2s;
 }
 .fade-leave-to {
   opacity: 0;

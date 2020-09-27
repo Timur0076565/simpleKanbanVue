@@ -20,7 +20,7 @@ export default {
                 title: 'In process',
                 id: "board-2",
                 cards: [
-                    
+
                 ],
                 bg: {
                     processBg: true,
@@ -30,7 +30,6 @@ export default {
                 title: 'Complete',
                 id: "board-3",
                 cards: [
-                    
                 ],
                 bg: {
                     completeBg: true,

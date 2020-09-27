@@ -42,8 +42,10 @@ export default {
         position: relative;
         background: white;
         margin: 5px;
-        padding: 10px;
+        padding: 15px 10px;
         cursor: pointer;
+        border-radius: 3px;
+
 
         .delete_card{
             position: absolute;

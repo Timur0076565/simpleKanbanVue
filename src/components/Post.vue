@@ -14,9 +14,11 @@ export default {
 <style lang="scss" scoped>
     .post__component {
         background: blue;
-        width: 95%;
+        width: 99%;
         padding: 5px;
         margin-top: 10px;
+        margin-bottom: 5px;
+        border-radius: 3px;
 
         .post__title{
             font-size: 22px;
@@ -26,6 +28,7 @@ export default {
         .post__text {
             background: white;
             padding: 10px 20px;
+            border-radius: 3px;
         }
     }
 </style>

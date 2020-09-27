@@ -38,6 +38,11 @@ export default {
                 .sidebar__link {
                     text-decoration: none;
                     color: white;
+                    font-weight: bold;
+                }
+
+                &:hover .sidebar__link {
+                    opacity: .8;
                 }
             }
         }
