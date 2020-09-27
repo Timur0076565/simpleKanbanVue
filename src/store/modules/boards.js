@@ -37,13 +37,44 @@ export default {
                 },
             }
         },
-        newCard: {}
+        newCard: {},
+        selects: {
+            sort: [
+                {name: "Cancel", value: false},
+                {name: "Apply", value: true}
+            ],
+            label: "Sort by alphavite",
+            selected: false
+        },
+    },
+    getters: {
+        filteredBySelects(state) {
+            let arr = state.boards.boardTodo.cards.slice()
+            if (state.selects.selected === true) {
+                return arr.sort((a, b) => {
+                    if (a.title > b.title) {
+                        return 1;
+                    } else {
+                        return -1;
+                    } 
+                })
+            } else {
+                return state.boards.boardTodo.cards.map((item) => {
+                    return {
+                        title: item.title,
+                        body: item.body
+                    }
+                })
+            }
+        }
     },
     mutations: {
         mutateCreateTodo(state, todo) {
-            let title = todo
+            let title = todo.title
+            let body = todo.body
             state.newCard = {
                 title,
+                body,
                 id: Date.now()
             }
 
@@ -65,7 +96,7 @@ export default {
         // },
         setTodos(state, response) { 
             state.boards.boardTodo.cards = response
-        }
+        },
     },
     actions: {
         createTodo(context, todo) {
@@ -79,7 +110,7 @@ export default {
         // },
         async getTodos ({ commit }) {
             const response = await axios
-                .get('https://jsonplaceholder.typicode.com/todos')
+                .get('https://jsonplaceholder.typicode.com/posts')
                 .catch((error) => {
                     console.log(error)
                 })

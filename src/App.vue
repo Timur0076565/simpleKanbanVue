@@ -11,6 +11,7 @@
 <script>
 import EmptyLayout from './layouts/EmptyLayout.vue'
 import MainLayout from './layouts/MainLayout.vue'
+import {mapActions} from 'vuex'
 
 
 export default {
@@ -23,6 +24,14 @@ export default {
     layout() {
       return (this.$route.meta.layout || 'empty') + '-layout'
     }
+  },
+  created() {
+      this.getTodos()
+  },
+  methods: {
+      ...mapActions([
+          'getTodos'
+      ]),
   }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
     <div class="add_todo__component">
-        <input type="text" v-model="todo">
+        <input type="text" v-model="todo.title" placeholder="Add title">
+        <input type="text" v-model="todo.body" placeholder="Add text">
         <button class="add_todo__btn" @click="addTodo">add todo</button>
     </div>
 </template>
@@ -11,7 +12,10 @@ import {mapActions} from 'vuex'
 export default {
     data() {
         return {
-            todo: ""
+            todo: {
+                title: "",
+                body: ""
+            }
         }
     },
     methods: {
@@ -20,7 +24,8 @@ export default {
         ]),
         addTodo() {
             this.createTodo(this.todo)
-            this.todo = ""
+            this.todo.title = ""
+            this.todo.body = ""
         }
     }
 }
@@ -28,10 +33,12 @@ export default {
 
 <style lang="scss" scoped>
     .add_todo__component {
+        display: flex;
+        justify-content: center;
+
         input {
-            width: 75.5%;
+            width: 44%;
             padding: 9px 0 9px 5px;
-            margin-top: 5px;
             border: 1px solid blue;
             border-bottom-left-radius: 3px;
             border-top-left-radius: 3px;

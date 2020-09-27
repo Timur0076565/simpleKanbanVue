@@ -16,9 +16,18 @@
                         :id="[card.id, id]"
                         draggable="true"
                     >
-                        {{card.title}}
+                        {{card.title | truncate}}
                     </Card>
                 </Board>
+                <!-- <draggable v-model="myList">
+                    <Card 
+                        v-for="(card, id) in myList" :key="id"
+                        :id="[card.id, id]"
+                        draggable="true"
+                    >
+                        {{card.title | truncate}}
+                    </Card>
+                </draggable> -->
             </div>
         </div>
     </div>
@@ -28,27 +37,35 @@
 import Card from '../components/Card.vue'
 import Board from '../components/Board.vue'
 import AddTodo from '../components/AddTodo.vue'
-import {mapState, mapActions} from 'vuex'
+import {mapState} from 'vuex'
+// import draggable from 'vuedraggable'
 
 export default {
     components: {
         Card,
         Board,
         AddTodo,
+        // draggable
     },
     computed: {
         ...mapState([
             'boards'
-        ])
-    },
-    created() {
-        this.getTodos()
-    },
-    methods: {
-        ...mapActions([
-            'getTodos'
         ]),
-    }
+        // myList: {
+        //     get() {
+        //         console.log(this.$store.state.boards.boards.boardTodo.cards)
+        //         return this.$store.state.boards.boards.boardTodo.cards
+        //     },
+        //     set(value) {
+        //         this.$store.commit('updateList', value)
+        //     }
+        // }
+    },
+    filters: {
+        'truncate': function (value) {
+            return `${value.slice(0, 35)}`;  
+        } 
+    },
 }
 </script>
 
