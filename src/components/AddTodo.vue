@@ -35,9 +35,10 @@ export default {
     .add_todo__component {
         display: flex;
         justify-content: center;
+        padding: 0 15px;
 
         input {
-            width: 44%;
+            width: 45.5%;
             padding: 9px 0 9px 5px;
             border: 1px solid blue;
             border-bottom-left-radius: 3px;

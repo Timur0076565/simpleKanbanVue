@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// import Dashboard from './views/Dashboard.vue'
-import Login from './views/Login.vue'
-// import Posts from './views/Login.vue'
-
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -14,7 +10,7 @@ const router = new VueRouter({
             path: '/',
             name: 'login',
             meta: {layout: 'empty'},
-            component: Login
+            component: () => import('./views/Login.vue')
         },
         {
             path: '/dashboard',
