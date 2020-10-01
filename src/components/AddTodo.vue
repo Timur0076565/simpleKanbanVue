@@ -20,10 +20,10 @@ export default {
     },
     methods: {
         ...mapActions([
-            'createTodo'
+            'CREATE_TODO'
         ]),
         addTodo() {
-            this.createTodo(this.todo)
+            this.CREATE_TODO(this.todo)
             this.todo.title = ""
             this.todo.body = ""
         }

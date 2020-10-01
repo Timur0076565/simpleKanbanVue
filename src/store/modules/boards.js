@@ -19,9 +19,6 @@ export default {
             boardInProcess: {
                 title: 'In process',
                 id: "board-2",
-                cards: [
-
-                ],
                 bg: {
                     processBg: true,
                 }
@@ -29,8 +26,6 @@ export default {
             boardComplete: {
                 title: 'Complete',
                 id: "board-3",
-                cards: [
-                ],
                 bg: {
                     completeBg: true,
                 },
@@ -47,8 +42,8 @@ export default {
         },
     },
     getters: {
-        filteredBySelects(state) {
-            let arr = state.boards.boardTodo.cards.slice()
+        FILTERED_BY_SELECTS(state) {
+            const arr = state.boards.boardTodo.cards.slice()
             if (state.selects.selected === true) {
                 return arr.sort((a, b) => {
                     if (a.title > b.title) {
@@ -68,9 +63,9 @@ export default {
         }
     },
     mutations: {
-        mutateCreateTodo(state, todo) {
-            let title = todo.title
-            let body = todo.body
+        CREATE_TODO(state, todo) {
+            const title = todo.title
+            const body = todo.body
             state.newCard = {
                 title,
                 body,
@@ -81,39 +76,33 @@ export default {
                 state.boards.boardTodo.cards.unshift(state.newCard )
             }
         },
-        dropMutate(state, e) {
-            const card_id = e.dataTransfer.getData('card_id');
+        DROP(state, event) {
+            const card_id = event.dataTransfer.getData('card_id');
 
             const card = document.getElementById(card_id)
 
             card.style.display = "block";
 
-            e.target.appendChild(card) 
+            event.target.appendChild(card) 
         },
-        // deleteCardMutate(state, id) {
-        //     state.boards.boardTodo.cards.splice(id, 1)
-        // },
-        setTodos(state, response) { 
+        SET_TODOS(state, response) { 
             state.boards.boardTodo.cards = response
         },
     },
     actions: {
-        createTodo(context, todo) {
-            context.commit('mutateCreateTodo', todo)
+        CREATE_TODO(context, todo) {
+            context.commit('CREATE_TODO', todo)
         },
-        dropAction(context, e) {
-            context.commit('dropMutate', e)
+        DROP(context, event) {
+            context.commit('DROP', event)
         },
-        // deleteCardAction(context, id) {
-        //     context.commit('deleteCardMutate', id)
-        // },
-        async getTodos ({ commit }) {
+        async GET_TODOS ({ commit }) {
             const response = await axios
                 .get('https://jsonplaceholder.typicode.com/posts')
                 .catch((error) => {
                     console.log(error)
                 })
-            commit('setTodos', response.data)
-        }
+            commit('SET_TODOS', response.data)
+        },
     }
 }

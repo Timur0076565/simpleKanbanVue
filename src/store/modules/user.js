@@ -2,20 +2,24 @@ export default {
     state: {
         userEmail: "kanban@kanban.com",
         userPassword: "kanban",  
-        loginDataWrong: false,
+        loginValidation: false,
+    },
+    getters: {
+        LOGIN_VALIDATION(state) {
+            return state.loginValidation
+        }
     },
     mutations: {
-        mutateCheckLogin(state,argument) {
+        CHECK_LOGIN(state,argument) {
             if (argument[0] === state.userEmail && argument[1] === state.userPassword) {
                 argument[2].push({name: 'dashboard'})
             }
-            state.loginDataWrong = true;
-            console.log(state.userEmail)
+            state.loginValidation = true;
         }
     },
     actions: {
-        async checkLogin(context, argument) {
-            await context.commit('mutateCheckLogin', argument)
+        async CHECK_LOGIN(context, argument) {
+            await context.commit('CHECK_LOGIN', argument)
         }
     }
 }

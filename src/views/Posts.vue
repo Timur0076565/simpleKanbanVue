@@ -7,10 +7,10 @@
             </div>
             <div class="posts__selects">
                 <div class="posts__select_wrapper">
-                    <label class="posts__label">{{boards.selects.label}}</label>
-                    <select class="posts__select" v-model="boards.selects.selected">
+                    <label class="posts__label">{{selects.label}}</label>
+                    <select class="posts__select" v-model="selects.selected">
                         <option 
-                            v-for="(option, index) in boards.selects.sort" :key="index"
+                            v-for="(option, index) in selects.sort" :key="index"
                             :value="option.value"
                         >{{option.name}}</option>
                     </select>
@@ -29,8 +29,6 @@
 
 <script>
 import Post from '../components/Post.vue'
-import {mapState, mapGetters} from 'vuex'
-
 
 export default {
     components: {
@@ -43,8 +41,12 @@ export default {
         }
     },
     computed: {
-        ...mapState(['boards', 'selects']),
-        ...mapGetters(['filteredBySelects']),
+        selects() {
+            return this.$store.state.boards.selects
+        },
+        filteredBySelects() {
+            return this.$store.getters.FILTERED_BY_SELECTS
+        },
         filteredPosts() {
             return this.filteredBySelects.filter(post => {
                 return post.title.toLowerCase().includes(this.search.toLowerCase())

@@ -1,14 +1,8 @@
 <template>
     <nav class="sidebar__component">
         <ul class="sidebar__ul">
-            <li class="sidebar__li">
-                <router-link class="sidebar__link" :to="{name: 'dashboard'}">Dashboard</router-link>
-            </li>
-            <li class="sidebar__li">
-                <router-link class="sidebar__link" :to="{name: 'posts'}">Posts</router-link>
-            </li>
-            <li class="sidebar__li">
-                <router-link class="sidebar__link" :to="{name: 'login'}"> > Logout</router-link>
+            <li class="sidebar__li" v-for="link in links" :key="link.id">
+                <router-link class="sidebar__link" :to="link.route">{{link.title}}</router-link>
             </li>
         </ul>
     </nav>
@@ -16,7 +10,33 @@
 
 <script>
 export default {
-    
+    data() {
+        return {
+            links: [
+                {
+                    route: {
+                        name: 'dashboard'
+                    },
+                    title: 'Dashboard',
+                    id: 0
+                },
+                {
+                    route: {
+                        name: 'posts'
+                    },
+                    title: 'Posts',
+                    id: 1
+                },
+                {
+                    route: {
+                        name: 'login'
+                    },
+                    title: '> Logout',
+                    id: 2
+                },
+            ]
+        }
+    },
 }
 </script>
 

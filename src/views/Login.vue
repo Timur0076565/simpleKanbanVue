@@ -13,12 +13,12 @@
             </form>
             <button @click="login" class="login__button">Вход</button>
          </div>
-        <div v-if="user.loginDataWrong" class="login__text">Неправильные данные</div>
+        <div v-if="loginValidation" class="login__text">Неправильные данные</div>
     </div>
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapActions} from 'vuex'
 export default {
     name: "login",
     data() {
@@ -28,16 +28,16 @@ export default {
         };
     },
     computed: {
-        ...mapState([
-            'user'
-        ])
+        loginValidation() {
+            return this.$store.getters.LOGIN_VALIDATION
+        }
     },
     methods: {
         ...mapActions([
-            'checkLogin'
+            'CHECK_LOGIN'
         ]),
         login() {
-            this.checkLogin([this.email, this.password, this.$router]);
+            this.CHECK_LOGIN([this.email, this.password, this.$router]);
         }
     }
 }

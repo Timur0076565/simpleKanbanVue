@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <component :is="layout">
-      <!-- <transition name="fade"> -->
-        <router-view />
-      <!-- </transition> -->
+      <router-view />
     </component>
   </div>
 </template>
@@ -26,11 +24,11 @@ export default {
     }
   },
   created() {
-      this.getTodos()
+      this.GET_TODOS()
   },
   methods: {
       ...mapActions([
-          'getTodos'
+          'GET_TODOS'
       ]),
   }
 }

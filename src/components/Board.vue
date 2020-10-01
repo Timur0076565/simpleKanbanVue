@@ -3,7 +3,7 @@
         class="board__component"
         :id="id"
         @dragover.prevent
-        @drop.prevent="drop"
+        @drop.prevent="DROP"
         :class="{
             isTodo: bg.todoBg,
             isProcess: bg.processBg,
@@ -21,7 +21,20 @@
 import {mapActions} from 'vuex'
 
 export default {
-    props: ['id', "title", "bg"],
+    props: {
+        id: {
+            type: String,
+            default: ""
+        },
+        title: {
+            type: String,
+            default: ""
+        },
+        bg: {
+            type: Object,
+            default: Function
+        }
+    },
     data() {
         return {
             color: "red"
@@ -29,11 +42,8 @@ export default {
     },
     methods: {
         ...mapActions([
-            'dropAction'
+            'DROP'
         ]),
-        drop(e) {
-            this.dropAction(e)
-        }
     }
 }
 </script>
