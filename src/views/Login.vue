@@ -1,18 +1,18 @@
 <template>
     <div class="login__view">
-         <div class="login__container">
-             <form class="fields">
-                <div class="field">
-                    <label for="login">Логин</label>
-                    <input required v-model="email" type="email" name="login" placeholder="login" />
-                </div>
-                <div class="field">
-                    <label for="password">Пароль</label>
-                    <input required v-model="password" type="password" name="passsword" placeholder="*************" />
-                </div>
-            </form>
-            <button @click="login" class="login__button">Вход</button>
-         </div>
+            <div class="login__container">
+                <form class="fields">
+                    <div class="field">
+                        <label for="login">Логин</label>
+                        <input required v-model="email" type="email" name="login" placeholder="login" />
+                    </div>
+                    <div class="field">
+                        <label for="password">Пароль</label>
+                        <input required v-model="password" type="password" name="passsword" placeholder="*************" />
+                    </div>
+                </form>
+                <button @click="login" class="login__button">Вход</button>
+            </div>
         <div v-if="loginValidation" class="login__text">Неправильные данные</div>
     </div>
 </template>
