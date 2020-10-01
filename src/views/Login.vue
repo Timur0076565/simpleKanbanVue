@@ -85,7 +85,6 @@ export default {
                 cursor: pointer;
             }
         }
-
         .login__text {
             color: red;
             font-size: 14px;
